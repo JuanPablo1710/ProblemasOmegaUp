@@ -1,0 +1,95 @@
+#include <iostream>
+using namespace std;
+
+void imprimir(char s, char c, int ln){
+	if(s == '0'){
+		if(ln == 0 || ln == 4) cout << c << c << c;
+		else cout << c << " " << c;
+
+		return;
+	}
+
+	if(s == '1'){
+		cout << c;
+	}
+
+	if(s == '2'){
+		if(ln == 0 || ln == 4 || ln == 2) cout << c << c << c;
+		else if(ln == 1) cout << "  " << c;
+		else cout << c << "  ";
+
+		return;
+	}
+
+	if(s == '3'){
+		if(ln == 0 || ln == 4 || ln == 2) cout << c << c << c;
+		else cout << "  " << c;
+
+		return;
+	}
+
+	if(s == '4'){
+		if(ln == 0 || ln == 1) cout << c << " " << c;
+		else if(ln == 2) cout << c << c << c;
+		else cout << "  " << c;
+
+		return;
+	}
+
+	if(s == '5'){
+		if(ln == 0 || ln == 2 || ln == 4) cout << c << c << c;
+		else if(ln == 1) cout << c << "  ";
+		else cout << "  " << c;
+
+		return;
+	}
+
+	if(s == '6'){
+		if(ln == 0 || ln == 2 || ln == 4) cout << c << c << c;
+		else if(ln == 1) cout << c << "  ";
+		else cout << c << " " << c;
+
+		return;
+	}
+
+	if(s == '7'){
+		if(ln == 0) cout << c << c << c;
+		else cout << "  " << c;
+
+		return;
+	}
+
+	if(s == '8'){
+		if(ln == 0 || ln == 2 || ln == 4) cout << c << c << c;
+		else cout << c <<  " " << c;
+
+		return;
+	}
+
+	if(s == '9'){
+		if(ln == 0 || ln == 2 || ln == 4) cout << c << c << c;
+		else if(ln == 1) cout << c << " " << c;
+		else cout << "  " << c;
+
+		return;
+	}
+}
+
+int main(){
+
+	string s;
+	char c;
+
+	cin >> s >> c;
+
+	for(int i = 0; i < 5; i++){
+		for(int j = 0; j < s.length(); j++){
+			imprimir(s[j], c, i);
+			cout << " ";
+		}
+
+		cout << '\n';
+	}
+
+	return 0;
+}
