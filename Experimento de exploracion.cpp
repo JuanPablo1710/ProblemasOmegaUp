@@ -3,9 +3,8 @@
 using namespace std;
 
 vector<vector<int>> v;
-vector<vector<int>> res;
 
-void cuenta(int i, int j, int n, int m){
+int cuenta(int i, int j, int n, int m){
 	int k = v[i][j];
 	int cn = 1;
 	int resi = i, resj = j;
@@ -39,31 +38,23 @@ void cuenta(int i, int j, int n, int m){
 			continue;
 		}
 
-		res[resi][resj] = cn;
-		return;
+		return cn;
 	}
 }
 
 
 int main(){
 
-	int n, m;
+	int n, m, mx = -1;
 	cin >> n >> m;
 
 	v.resize(n, vector<int>(m));
-	res.resize(n, vector<int>(m, 0));
 
 	for(int i = 0; i < n; i++) for(int j = 0; j < m; j++) cin >> v[i][j];
 
-	for(int i = 0; i < n; i++) for(int j = 0; j < m; j++) cuenta(i, j, n, m);
-
-	int mx = -1;
-
-	for(int i = 0; i < n; i++){
-		for(int j = 0; j < m; j++){
-			mx = max(res[i][j], mx);
-		}
-	}
+	for(int i = 0; i < n; i++) for(int j = 0; j < m; j++){
+        mx = max(cuenta(i, j, n, m), mx);
+    }
 
 	cout << mx;
 
